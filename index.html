@@ -5,178 +5,76 @@
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Don't_tell_the_others</title>
-
-    <!-- Beer Css -->
-    <link href="https://cdn.jsdelivr.net/npm/beercss@3.5.1/dist/cdn/beer.min.css" rel="stylesheet">
-
-    <!-- picture_slid CSS -->
+    <title>Don't tell the others</title>
     
-    <link href="main.css" rel="stylesheet">
-    <link href="slide.css" rel="stylesheet">
+    <!-- External CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/beercss@3.5.1/dist/cdn/beer.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Internal CSS -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/gallery.css">
+    <link rel="stylesheet" href="css/player.css">
+    <link rel="stylesheet" href="css/forms.css">
+
+    <!-- Change in the head section -->
+    <script type="importmap">
+    {
+      "imports": {
+        "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js"
+      }
+    }
+    </script>
 </head>
 
 
 <body>
-  <article>
-    <header class="fill">
-      <nav>
-        <h4 class="max">Don't tell the others</h4>
-        <button class="transparent">
-          <h7>Wilkommen</h7>
-        </button>
-        <button class="transparent">
-          <h7>Band</h7>
-        </button>
-        <button class="transparent">
-          <h7>Auftritte</h7>
-        </button>
-        <button class="transparent">
-          <h7>Impressionen</h7>
-        </button>
-        <button class="transparent">
-          <h7>Kontakt</h7>
-        </button>
-      </nav>
-    </header>
-  </article>
+    <div id="app">
+        <!-- Navigation -->
+        <nav class="nav-bar">
+            <div class="container">
+                <h2 style="color: white; margin: 0;">{{ bandName }}</h2>
+            </div>
+        </nav>
 
-  <div class="slider">
-    <div class="slides">
-      <!--radio buttons start-->
-      <input type="radio" name="radio-btn" id="radio1">
-      <input type="radio" name="radio-btn" id="radio2">
-      <input type="radio" name="radio-btn" id="radio3">
-      <input type="radio" name="radio-btn" id="radio4">
-      <input type="radio" name="radio-btn" id="radio5">
-      <input type="radio" name="radio-btn" id="radio6">
-      <input type="radio" name="radio-btn" id="radio7">
-      <input type="radio" name="radio-btn" id="radio8">
-      <input type="radio" name="radio-btn" id="radio9">
-      <input type="radio" name="radio-btn" id="radio10">
-      <!--radio buttons end-->
-      <!--slide images start-->
-      <div class="slide first">
-        <img src="/pics/band/band_crowd.jpeg" alt="">
-      </div>
-      <div class="slide">
-        <img src="/pics/band/Band_front.jpg" alt="">
-      </div>
-      <div class="slide">
-        <img src="/pics/band/Band_light.jpg" alt="">
-      </div>
-      <div class="slide">
-        <img src="/pics/band/band_louis-flo.jpeg" alt="">
-      </div>
-      <div class="slide">
-        <img src="/pics/band/band_nice-light.jpeg" alt="">
-      </div>
-      <div class="slide">
-        <img src="/pics/band/Band_Pascal.jpg" alt="">
-      </div>
-      <div class="slide">
-        <img src="/pics/band/band_pascal_go.jpeg" alt="">
-      </div>
-      <div class="slide">
-        <img src="/pics/band/band_seb-solo.jpeg" alt="">
-      </div>
-      <div class="slide">
-        <img src="/pics/band/band_trio.jpeg" alt="">
-      </div>
-      <div class="slide">
-        <img src="/pics/band/band_wave.jpeg" alt="">
-      </div>
-      <!--slide images end-->
-      <!--automatic navigation start-->
-      <div class="navigation-auto">
-        <div class="auto-btn1"></div>
-        <div class="auto-btn2"></div>
-        <div class="auto-btn3"></div>
-        <div class="auto-btn4"></div>
-        <div class="auto-btn5"></div>
-        <div class="auto-btn6"></div>
-        <div class="auto-btn7"></div>
-        <div class="auto-btn8"></div>
-        <div class="auto-btn9"></div>
-        <div class="auto-btn10"></div>
-      </div>
-      <!--automatic navigation end-->
+        <!-- Main Content -->
+        <main>
+            <!-- Components will be included here -->
+            <slideshow-component></slideshow-component>
+            <band-members-component></band-members-component>
+            <performances-component></performances-component>
+            <gallery-component></gallery-component>
+            <contact-component></contact-component>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-social-links">
+                        <a v-for="social in socialLinks" 
+                           :key="social.platform" 
+                           :href="social.url" 
+                           class="social-link" 
+                           target="_blank">
+                            <i :class="social.icon"></i>
+                        </a>
+                    </div>
+                    <p>© {{ new Date().getFullYear() }} {{ bandName }}. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Music Player -->
+        <music-player-component></music-player-component>
     </div>
-  </div>
 
-
-
-
-  <article class="center-align middle-align">
-    <div class="band-container">
-      <h1 class="title">Band</h1>
-      <div class="row">
-          <div class="member">
-              <img src="./pics/band_members/lea.png" alt="Lea">
-              <p>Lea</p>
-          </div>
-          <div class="member">
-              <img src="./pics/band_members/pascal.png" alt="Pascal">
-              <p>Pascal</p>
-          </div>
-          <div class="member">
-              <img src="./pics/band_members/sebastian.png" alt="Sebastian">
-              <p>Sebastian</p>
-          </div>
-      </div>
-      <div class="row centered">
-          <div class="member">
-              <img src="./pics/band_members/flo.png" alt="Flo">
-              <p>Flo</p>
-          </div>
-          <div class="member">
-              <img src="./pics/band_members/louis.png" alt="Louis">
-              <p>Louis</p>
-          </div>
-      </div>
-  </div>
-  </article>
-  <br>
-  <article class="center-align middle-align">
-    <div class="padding">
-      <h1>Auftritte</h1>
-      <div>Lorem ipsum dolor...</div>
-      <br>
-      <br>
-    </div>
-  </article>
-
-  <article class="center-align middle-align">
-    <div class="padding">
-      <h1>Impressionen</h1>
-      <div>Lorem ipsum dolor...</div>
-      <br>
-      <br>
-    </div>
-  </article>
-  
-  <br>
-  <br>
-  <br>
-  <br>
-    <br>
-  <br>
+    <!-- Scripts -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/beercss@3.5.1/dist/cdn/beer.min.js"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/material-dynamic-colors@1.1.0/dist/cdn/material-dynamic-colors.min.js"></script>
     
-    
-    
-    
-    
-  
-  <footer class="primary-container responsive">
-    <nav>
-     
-    </nav>
-  </footer>
-  
-  <script type="module" src="https://cdn.jsdelivr.net/npm/beercss@3.5.1/dist/cdn/beer.min.js"></script>
-  <script type="module" src="https://cdn.jsdelivr.net/npm/material-dynamic-colors@1.1.0/dist/cdn/material-dynamic-colors.min.js"></script>
-
-  <script src="main.js"></script>
-  <script src="slider.js"></script>
+    <!-- App Scripts -->
+    <script type="module" src="js/app.js"></script>
 </body>
 </html>
