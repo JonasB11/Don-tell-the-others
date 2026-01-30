@@ -243,13 +243,9 @@ const bandMembers: BandMember[] = [
 
 ## 📄 Lizenz
 
-© 2026 Dont tell the others. Alle Rechte vorbehalten.
+Copyright (c) 2026 Dont tell the others. **Alle Rechte vorbehalten.**
 
-## 📞 Kontakt
-
-- **Booking**: booking@dontelltheothers.de
-- **Management**: Rock Agency GmbH
-- **Website**: [www.dontelltheothers.de](https://www.dontelltheothers.de)
+Die Nutzung, Vervielfältigung, Modifikation oder Verbreitung dieser Software ist ohne ausdrückliche schriftliche Genehmigung nicht gestattet. Siehe die [LICENSE](LICENSE) Datei für Details.
 
 ---
 
